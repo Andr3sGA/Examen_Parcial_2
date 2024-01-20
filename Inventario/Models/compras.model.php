@@ -30,12 +30,12 @@ class Clase_compras
             $con->close();
         }
     }
-    public function insertar($id_clientes, $nombre, $precio, $stock)
+    public function insertar($id_clientes, $id_producto, $cantidad, $total)
     {
         try {
             $con = new Clase_Conectar_Base_Datos();
             $con = $con->ProcedimientoConectar();
-            $cadena = "INSERT INTO `compras`( `id_clientes`, `nombre`, `precio`, `stock`) VALUES ('$id_clientes','$nombre','$precio','$stock')";
+            $cadena = "INSERT INTO `compras`( `id_clientes`, `id_producto`, `cantidad`, `total`) VALUES ('$id_clientes','$id_producto','$cantidad','$total')";
             $result = mysqli_query($con, $cadena);
             return 'ok';
         } catch (Throwable $th) {
@@ -44,12 +44,12 @@ class Clase_compras
             $con->close();
         }
     }
-    public function actualizar($id_compras, $id_clientes, $nombre, $precio, $stock)
+    public function actualizar($id_compras, $id_clientes, $id_producto, $cantidad, $total)
     {
         try {
             $con = new Clase_Conectar_Base_Datos();
             $con = $con->ProcedimientoConectar();
-            $cadena = "UPDATE `compras` SET `id_clientes`='$id_clientes',`nombre`='$nombre',`precio`='$precio',`stock`='$stock' WHERE `id_compras`=$id_compras";
+            $cadena = "UPDATE `compras` SET `id_clientes`='$id_clientes',`id_producto`='$id_producto',`cantidad`='$cantidad',`total`='$total' WHERE `id_compras`=$id_compras";
             $result = mysqli_query($con, $cadena);
             return "ok";
         } catch (Throwable $th) {

@@ -30,12 +30,12 @@ class Clase_cliente
             $con->close();
         }
     }
-    public function insertar($nombre, $descripcion)
+    public function insertar($nombre, $direccion, $telefono)
     {
         try {
             $con = new Clase_Conectar_Base_Datos();
             $con = $con->ProcedimientoConectar();
-            $cadena = "INSERT INTO `clientes`( `nombre`, `descripcion`) VALUES ('$nombre','$descripcion')";
+            $cadena = "INSERT INTO `clientes`( `nombre`, `direccion`, `telefono`) VALUES ('$nombre','$direccion', '$telefono')";
 
             $result = mysqli_query($con, $cadena);
             return 'ok';
@@ -45,12 +45,12 @@ class Clase_cliente
             $con->close();
         }
     }
-    public function actualizar($id_clientes, $nombre, $descripcion)
+    public function actualizar($id_clientes, $nombre, $direccion, $telefono)
     {
         try {
             $con = new Clase_Conectar_Base_Datos();
             $con = $con->ProcedimientoConectar();
-            $cadena = "UPDATE `clientes` SET `nombre`='$nombre',`descripcion`='$descripcion' WHERE `id_clientes`=$id_clientes";
+            $cadena = "UPDATE `clientes` SET `nombre`='$nombre',`direccion`='$direccion',`telefono`='$telefono' WHERE `id_clientes`=$id_clientes";
             $result = mysqli_query($con, $cadena);
             return "ok";
         } catch (Throwable $th) {

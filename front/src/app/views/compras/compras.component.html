@@ -23,11 +23,11 @@
             </tr>
           </thead>
           <tbody>
-            @for (compra of compras; track compra.id_compra; let i =
+            @for (compra of compras; track compra.id_compras; let i =
             $index) {
             <tr>
               <td>{{ i + 1 }}</td>
-              <td>{{ compra.id_cliente }}</td>
+              <td>{{ compra.clientes }}</td>
               <td>{{ compra.id_producto }}</td>
               <td>{{ compra.cantidad }}</td>
               <td>{{ compra.total }}</td>
@@ -35,14 +35,14 @@
                 <button
                   type="button"
                   class="btn btn-outline-warning"
-                  routerLink="/editar-compra/{{ compra.id_compra }}"
+                  routerLink="/editar-compra/{{ compra.id_compras }}"
                 >
                   Editar
                 </button>
                 <button
                   type="button"
                   class="btn btn-outline-danger"
-                  (click)="eliminar(compra.id_compra)"
+                  (click)="eliminar(compra.id_compras)"
                 >
                   Eliminar
                 </button>

@@ -29,17 +29,19 @@ switch ($_GET["op"]) {
         break;
     case 'insertar':
         $nombre = $_POST["nombre"];
-        $descripcion = $_POST["descripcion"];
+        $direccion = $_POST["direccion"];
+        $telefono = $_POST["telefono"];
         $datos = array(); //defino un arreglo
-        $datos = $cliente->insertar($nombre, $descripcion); //llamo al modelo de usuarios e invoco al procedimiento insertar
+        $datos = $cliente->insertar($nombre, $direccion, $telefono); //llamo al modelo de usuarios e invoco al procedimiento insertar
         echo json_encode($datos); //devuelvo el arreglo en formato json
         break;
     case 'actualizar':
         $id_clientes = $_POST["id_clientes"];
         $nombre = $_POST["nombre"];
-        $descripcion = $_POST["descripcion"];
+        $direccion = $_POST["direccion"];
+        $telefono = $_POST["telefono"];
         $datos = array(); //defino un arreglo
-        $datos = $cliente->actualizar($id_clientes, $nombre, $descripcion); //llamo al modelo de usuarios e invoco al procedimiento actual
+        $datos = $cliente->actualizar($id_clientes, $nombre, $direccion, $telefono); //llamo al modelo de usuarios e invoco al procedimiento actual
         echo json_encode($datos); //devuelvo el arreglo en formato json
         break;
 

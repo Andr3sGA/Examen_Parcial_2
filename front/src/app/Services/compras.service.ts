@@ -23,10 +23,7 @@ import { Observable } from 'rxjs';
   
   insertar(compra:Icompras):Observable<any>{
     var sto = new FormData();
-
-    sto.append('id_compra', compra.id_compra.toString());
-
-    sto.append('id_cliente', compra.id_cliente.toString());
+    sto.append('id_clientes', compra.id_clientes.toString());
     sto.append('id_producto', compra.id_producto.toString());
     sto.append('cantidad', compra.cantidad.toString());
     sto.append('total', compra.total.toString());
@@ -36,8 +33,8 @@ import { Observable } from 'rxjs';
   actualizar(compra:Icompras, id: number):Observable<any>{
     var sto = new FormData();
 
-    sto.append('id_compra', id.toString());
-    sto.append('id_cliente', compra.id_cliente.toString());
+    sto.append('id_compras', id.toString());
+    sto.append('id_clientes', compra.id_clientes.toString());
     
     sto.append('id_producto', compra.id_producto.toString());
     sto.append('cantidad', compra.cantidad.toString());
@@ -46,7 +43,7 @@ import { Observable } from 'rxjs';
   }
   eliminar(id:number):Observable<any>{
     var sto = new FormData();
-    sto.append('id_compra', id.toString());
+    sto.append('id_compras', id.toString());
     return this.clientePhp.post(this.urlBase + 'eliminar', sto);
   }
   

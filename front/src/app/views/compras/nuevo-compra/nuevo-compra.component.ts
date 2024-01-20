@@ -25,7 +25,7 @@ export class NuevoCompraComponent {
 
   ListaProveedores: Icliente[];
   compra: FormGroup = new FormGroup({
-    id_cliente: new FormControl('', Validators.required),
+    id_clientes: new FormControl('', Validators.required),
     id_producto: new FormControl('', Validators.required),
     cantidad: new FormControl('', Validators.required),
     total: new FormControl('', Validators.required),
@@ -47,7 +47,7 @@ export class NuevoCompraComponent {
       this.compraServicio.uno(this.id).subscribe((res) => {
         console.log(res);
         this.compra.patchValue({
-          id_clientes: res.id_cliente,
+          id_clientes: res.id_clientes,
           id_producto: res.id_producto,
           cantidad: res.cantidad,
           total: res.total,

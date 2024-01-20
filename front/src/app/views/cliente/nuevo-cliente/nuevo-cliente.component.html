@@ -5,6 +5,7 @@
   <div class="card-body">
     <form [formGroup]="provedor" (ngSubmit)="grabar()">
       <div class="mb-2">
+        
         <label for="nombre">Nombre</label>
         <input type="text" class="form-control" formControlName="nombre" />
         @if (provedor.invalid && (provedor.dirty || provedor.touched)) {
@@ -47,7 +48,7 @@
         >
           Grabar
         </button>
-        <button class="btn btn-secondary" routerLink="/proveedores">
+        <button class="btn btn-secondary" routerLink="/clientes">
           Cancelar
         </button>
       </div>

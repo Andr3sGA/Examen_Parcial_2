@@ -22,7 +22,8 @@ export class NuevoProveedorComponent {
 
   provedor: FormGroup = new FormGroup({
     nombre: new FormControl('', Validators.required),
-    descripcion: new FormControl('', Validators.required),
+    direccion: new FormControl('', Validators.required),
+    telefono: new FormControl('', Validators.required),
   });
   constructor(
     private proveedorServicio: ProveedorService,

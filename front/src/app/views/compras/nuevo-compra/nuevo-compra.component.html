@@ -4,10 +4,10 @@
   </div>  
   <!--form-->
   <div class="card-body">
-    <form [formGroup]="compra" (ngSubmit)="grabar()">
+    <form [formGroup]="compra" (ngSubmit)="grabar()"> 
       <div class="mb-2">
-        <label for="id_categorias">id_categorias</label>
-        <select class="form-control" formControlName="id_categorias">
+        <label for="id_clientes">ID Cliente</label>
+        <select class="form-control" formControlName="id_clientes">
           <option value="0">Seleccione una opción</option>
           @for (proveedor of ListaProveedores; track proveedor.id_clientes) {
           <option [value]="proveedor.id_clientes">{{ proveedor.nombre }}</option>
@@ -17,48 +17,48 @@
         @if (compra.invalid && (compra.dirty || compra.touched)) {
         <div class="alert">
           @if (compra.errors?.["required"]) {
-          <div class="ng-invalid">Id Proovedor es requerido</div>
+          <div class="ng-invalid">ID Cliente es requerido</div>
           }
         </div> 
         }
       </div>
       <div class="mb-2">
-        <label for="nombre"> nombre </label>
-        <input type="text" class="form-control" formControlName="nombre" />
+        <label for="id_producto"> ID Producto </label>
+        <input type="text" class="form-control" formControlName="id_producto" />
         @if (compra.invalid && (compra.dirty || compra.touched)) {
         <div class="alert">
           @if (compra.errors?.["required"]) {
-          <div class="ng-invalid">nombre es requerido</div>
+          <div class="ng-invalid">ID Producto es requerido</div>
           }
         </div>
         }
       </div>
       <div class="mb-2">
-        <label for="precio"> precio </label>
+        <label for="cantidad"> Cantidad </label>
         <input
           type="text"
           class="form-control"
-          formControlName="precio"
+          formControlName="cantidad"
         />
         @if (compra.invalid && (compra.dirty || compra.touched)) {
         <div class="alert">
           @if (compra.errors?.["required"]) {
-          <div class="ng-invalid">Precio es requerido</div>
+          <div class="ng-invalid">La cantidad es requerido</div>
           }
         </div>
         }
       </div>
       <div class="mb-2">
-        <label for="stock"> stock </label>
+        <label for="total"> Total </label>
         <input
           type="text"
           class="form-control"
-          formControlName="stock"
+          formControlName="total"
         />
         @if (compra.invalid && (compra.dirty || compra.touched)) {
         <div class="alert">
-          @if (compra.errors?.["required"]) {
-          <div class="ng-invalid">stock es requerido</div>
+          @if (compra.errors?.["required"]) { 
+          <div class="ng-invalid">El total es requerido</div>
           }
         </div>
         }
@@ -67,7 +67,7 @@
         <button type="submit" class="btn btn-primary" [disabled]="!compra.valid">
           Grabar
         </button>
-        <button class="btn btn-secondary" routerLink="/dashboard/compras">
+        <button class="btn btn-secondary" routerLink="/compras">
           Cancelar
         </button>
       </div>
